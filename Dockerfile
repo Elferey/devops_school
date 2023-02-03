@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:18.04
 RUN apt-get default-jdk -y
 RUN apt install maven -y
 RUN apt install tomcat9 -y
@@ -9,4 +9,4 @@ RUN mvn package
 RUN cd target
 RUN cp -r hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
-CMD ["/bin/bash"]
+CMD ["nginx", "-g", "daemon off;"]
