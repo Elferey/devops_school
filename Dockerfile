@@ -1,5 +1,4 @@
 FROM alpine:latest
-RUN apt update
 RUN apt default-jdk -y
 RUN apt install maven -y
 RUN apt install tomcat9 -y
