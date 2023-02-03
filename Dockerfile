@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-RUN apt-get default-jdk -y
+RUN apt default-jdk -y
 RUN apt install maven -y
 RUN apt install tomcat9 -y
 RUN apt install git
