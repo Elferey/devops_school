@@ -6,7 +6,7 @@ RUN apt install tomcat9 -y
 WORKDIR .
 ADD . .
 RUN cd boxfuse-sample-java-war-hello && mvn package
-COPY boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
+COPY ./target/hello-1.0.war /var/lib/tomcat9/webapps/
 #RUN cp -r boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
 CMD ["bash"]
