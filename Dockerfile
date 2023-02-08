@@ -1,11 +1,12 @@
 FROM maven:3.8.7-openjdk-18-slim as maven_builder
-WORKDIR /usr/local/tomcat
-ADD . /usr/local/tomcat
+ENV CATALINA_HOME="/usr/local/tomcat"
+WORKDIR $CATALINA_HOME
+ADD . $CATALINA_HOME
 RUN mvn package
 
 FROM eclipse-temurin:17-jdk-focal
-RUN mkdir -p /usr/local/tomcat
-WORKDIR /usr/local/tomcat
-COPY --from=maven_builder /usr/local/tomcat/target/hello-1.0.war /usr/local/tomcat/webapps
+RUN mkdir -p $CATALINA_HOME
+WORKDIR $CATALINA_HOME
+COPY --from=maven_builder $CATALINA_HOME/target/hello-1.0.war $CATALINA_HOME/webapps
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
