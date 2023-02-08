@@ -4,7 +4,7 @@ WORKDIR $CATALINA_HOME
 ADD boxfuse-sample-java-war-hello $CATALINA_HOME
 RUN mvn package
 
-FROM eclipse-temurin:17-jdk-focal
+FROM tomcat:9
 ENV CATALINA_HOME="/usr/local/tomcat"
 RUN mkdir -p $CATALINA_HOME
 WORKDIR $CATALINA_HOME
