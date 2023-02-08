@@ -1,6 +1,6 @@
 FROM maven:3.8.7-openjdk-18-slim as maven_builder
 WORKDIR /usr/local/tomcat
-ADD boxfuse-sample-java-war-hello /usr/local/tomcat
+ADD . /usr/local/tomcat
 RUN mvn package
 
 FROM eclipse-temurin:17-jdk-focal
