@@ -4,7 +4,7 @@ RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install tomcat9 -y
 ADD ./boxfuse-sample-java-war-hello .
-RUN cd boxfuse-sample-java-war-hello && mvn package
+RUN cd ./boxfuse-sample-java-war-hello && mvn package
 COPY ./boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 #RUN cp -r boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
