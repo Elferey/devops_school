@@ -1,8 +1,8 @@
 FROM maven:3.8.7-openjdk-18-slim as maven_builder
 ENV CATALINA_HOME="/usr/local/tomcat"
 WORKDIR $CATALINA_HOME
-ADD . $CATALINA_HOME
-RUN cd mvn package
+ADD boxfuse-sample-java-war-hello $CATALINA_HOME
+RUN mvn package
 
 FROM eclipse-temurin:17-jdk-focal
 RUN mkdir -p $CATALINA_HOME
