@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+WORKDIR .
 RUN apt update
 RUN apt install default-jdk -y
 RUN apt install maven -y
