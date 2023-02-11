@@ -11,10 +11,10 @@ services:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - data:/usr/local/tomcat/
+      - data:/usr/local/tomcat/webapps
     ports:
       - 8080:8080
     depends_on:
-      - maven
+      - maven_custom
 volumes:
   data:
