@@ -3,8 +3,9 @@ version: '3.7'
 services:
   maven:
     build: 
-      context: maven_3.8.7-openjdk/
+      context: ./maven_custom
     volumes:
+      - $HOME/.m2/repository:/root/.m2/repository
       - data:/tmp
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
