@@ -3,15 +3,15 @@ version: '3.7'
 services:
   maven:
     build: 
-      context: ./maven_3.8.7-openjdk
+      context: maven_3.8.7-openjdk/
     volumes:
-      - ./maven_3.8.7-openjdk:/usr/local/tomcat
+      - ./maven_3.8.7-openjdk
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - ./maven_3.8.7-openjdk:/usr/local/tomcat/
+      - ./maven_3.8.7-openjdk:/usr/local/tomcat/webapps
     ports:
       - 8080:8080
-    #depends_on:
-    #  - maven
+    depends_on:
+      - maven
 
