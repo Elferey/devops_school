@@ -6,14 +6,13 @@ services:
       context: maven_3.8.7-openjdk/
     volumes:
       - data:/usr/local/tomcat/webapps
-    depends_on:
-      - tomcat
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
       - data:/usr/local/tomcat/
     ports:
       - 8080:8080
-
+    depends_on:
+      - maven
 volumes:
   data:
