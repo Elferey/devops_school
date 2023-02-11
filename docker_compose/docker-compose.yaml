@@ -7,7 +7,7 @@ services:
     volumes:
       - data:/usr/local/tomcat/webapps
     depends_on:
-      - tomcar
+      - tomcat
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
