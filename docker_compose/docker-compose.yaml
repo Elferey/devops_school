@@ -12,6 +12,6 @@ services:
       - ./maven_3.8.7-openjdk:/usr/local/tomcat/
     ports:
       - 8080:8080
-    depends_on:
-      - maven
+    #depends_on:
+    #  - maven
 
