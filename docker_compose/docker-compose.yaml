@@ -1,7 +1,7 @@
 ---
 version: '3.7'
 services:
-  maven:
+  maven_custom:
     build: 
       context: ./maven_custom
       dockerfile: Dockerfile
