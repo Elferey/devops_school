@@ -16,3 +16,7 @@ services:
       - 8080:8080
     depends_on:
       - maven
+
+volumes:
+  artifacts:
+    - maven_3.8.7-openjdk:
