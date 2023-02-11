@@ -9,15 +9,9 @@ services:
   tomcat:
     image: tomcat:9.0.17-jdk11-temurin-focal
     volumes: 
-      - type: volume
-        source: artifacts
-        target: /usr/local/tomcat/webapps
+      - ./maven_3.8.7-openjdk:/usr/local/tomcat/
     ports:
       - 8080:8080
     depends_on:
       - maven
 
-volumes:
-  artifacts:
-    paths:
-      - maven_3.8.7-openjdk:/usr/local/tomcat
