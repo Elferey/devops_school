@@ -5,13 +5,14 @@ services:
     build: 
       context: maven_3.8.7-openjdk/
     volumes:
-      - ./boxfuse-sample-java-war-hello/
+      - maven_3.8.7-openjdk:usr/local/tomcat/
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - ./boxfuse-sample-java-war-hello:/usr/local/tomcat/webapps
+      - maven_3.8.7-openjdk:/usr/local/tomcat/webapps
     ports:
       - 8080:8080
     depends_on:
       - maven
-
+volumes:
+  maven_3.8.7-openjdk:
