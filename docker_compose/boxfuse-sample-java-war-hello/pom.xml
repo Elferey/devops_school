@@ -16,9 +16,10 @@
         </dependency>
     </dependencies>
     <build>
-        <defaultGoal>compile</defaultGoal>
+        <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
+                <defaultGoal>package</defaultGoal>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
                 <configuration>
@@ -27,6 +28,7 @@
                 </configuration>
             </plugin>
             <plugin>
+                <defaultGoal>package</defaultGoal>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
                 <configuration>
