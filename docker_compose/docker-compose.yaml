@@ -19,4 +19,5 @@ services:
 
 volumes:
   artifacts:
-    - maven_3.8.7-openjdk:
+    paths:
+      - maven_3.8.7-openjdk:/usr/local/tomcat
