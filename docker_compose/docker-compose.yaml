@@ -8,7 +8,10 @@ services:
       - ./maven_3.8.7-openjdk:/usr/local/tomcat
   tomcat:
     image: tomcat:9
-    volumes: /usr/local/tomcat/webapps
+    volumes: 
+      - type: volume
+      - source: artifacts
+      - target: /usr/local/tomcat/webapps
     ports:
       - 8080:8080
     depends_on:
