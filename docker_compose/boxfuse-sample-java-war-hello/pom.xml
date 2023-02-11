@@ -19,18 +19,26 @@
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
-                <defaultGoal>package</defaultGoal>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+                <executions>   
+                    <execution>
+                        <defaultGoal>package</defaultGoal>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
-                <defaultGoal>package</defaultGoal>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
+                <executions>   
+                    <execution>
+                        <defaultGoal>package</defaultGoal>
+                    </execution>
+                </executions>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
