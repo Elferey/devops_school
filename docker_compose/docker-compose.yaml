@@ -4,6 +4,7 @@ services:
   maven:
     build: 
       context: ./maven_custom
+      dockerfile: Dockerfile
     volumes:
       - $HOME/.m2/repository:/root/.m2/repository
       - data:/tmp
