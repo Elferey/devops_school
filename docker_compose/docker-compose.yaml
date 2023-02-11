@@ -9,7 +9,7 @@ services:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - /usr/local/tomcat/webapps
+      - /usr/local/webapps/target
     ports:
       - 8080:8080
     depends_on:
