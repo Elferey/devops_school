@@ -22,7 +22,7 @@
     - name: Clone a github repository
       git:
         repo: https://github.com/Elferey/devops_school.git
-        dest: /tmp
+        dest: /tmp/github
         clone: yes
         update: yes
 
