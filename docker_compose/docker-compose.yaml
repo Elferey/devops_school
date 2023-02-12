@@ -8,7 +8,7 @@ services:
     volumes:
       - type: bind
         source: /usr/local/tomcat/boxfuse-sample-java-war-hello/hello-1.0.war
-        target: ./data/
+        target: /data
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
