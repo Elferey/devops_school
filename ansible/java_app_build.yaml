@@ -46,7 +46,7 @@
   tasks:
     - name: Copy war file in host
       fetch:
-        src: /tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
+        src: /tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0
         dest: /tmp
 
 - name: Install tomcat9 in launch server
@@ -71,8 +71,8 @@
   tasks:
     - name: Copy file
       copy:
-        src: /tmp/10.129.0.9/tmp/github/boxfuse-sample-java-war-hello/target/
+        src: /tmp/10.129.0.9/tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0
         dest: /var/lib/tomcat/webapps
 
-    - name: unpkg war file
-      raw: jar -xvf /var/lib/tomcat/webapps/hello-1.0.war
+#    - name: unpkg war file
+#      raw: jar -xvf /var/lib/tomcat/webapps/hello-1.0.war
