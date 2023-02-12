@@ -6,11 +6,12 @@ services:
       context: ./maven_custom
       dockerfile: Dockerfile
     volumes:
-      - data:/tmp
+      - "./tomcathome:/tmp"
+#      - data:/tmp
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - data/target:/usr/local/tomcat
+      - "./tomcathome:/usr/local/tomcat"
     ports:
       - 8080:8080
     depends_on:
