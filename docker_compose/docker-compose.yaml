@@ -15,11 +15,9 @@ services:
          target: /usr/local/tomcat/webapps
          volume:
            nocopy: true
-#      - data3:/usr/local/tomcat
     ports:
       - 8080:8080
     depends_on:
       - maven_custom
 volumes:
   data2:
-  data3:
