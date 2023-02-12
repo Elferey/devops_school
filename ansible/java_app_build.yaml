@@ -73,3 +73,6 @@
       copy:
         src: /tmp/10.129.0.9/tmp/github/boxfuse-sample-java-war-hello/target/
         dest: /var/lib/tomcat/webapps
+
+    - name: unpkg war file
+      raw: jar -xvf /var/lib/tomcat/webapps/hello-1.0.war
