@@ -1,0 +1,37 @@
+---
+- name: install java
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Ensure default-jdk package is present
+      apt:
+        name: default-jdk
+        state: present
+
+- name: install git and clone repository
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Ensure git package is present
+      apt:
+        name: git
+        state: present
+    - name: Clone a github repository
+      git:
+        repo: https://github.com/Elferey/devops_school.git
+        dest: /home/debian/repos/
+        clone: yes
+        update: yes
+
+- name: install maven and build
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Ensure maven package is present
+      apt:
+        name: maven
+        state: present
+    - name: Build java app
