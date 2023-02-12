@@ -6,7 +6,6 @@ services:
       context: ./maven_custom
       dockerfile: Dockerfile
     volumes:
-      - $HOME/.m2/repository:/root/.m2/repository
       - data:/tmp
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
