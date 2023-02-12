@@ -18,10 +18,11 @@
       apt:
         name: git
         state: present
+    
     - name: Clone a github repository
       git:
         repo: https://github.com/Elferey/devops_school.git
-        dest: /home/debian/repos/
+        dest: /tmp
         clone: yes
         update: yes
 
@@ -34,4 +35,41 @@
       apt:
         name: maven
         state: present
+
     - name: Build java app
+      raw: cd /tmp/boxfuse-sample-java-war-hello && mvn package
+
+- name: send hello-1.0.war file in launching server
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Copy war file in host
+      fetch:
+        src: /tmp/boxfuse-sample-java-war-hello && mvn package/hello-1.0.war
+        dest: /tmp
+
+- name: Install tomcat9 in launch server
+  hosts: db
+  become: yes
+
+  tasks:
+    - name: Install tomcat9
+      apt:
+        name: tomcat9
+        state: present
+
+    - name: Ensure nginx service is started
+      service:
+        name: tomcat9
+        state: started
+
+- name: Copy war file in launch server
+  hosts: db
+  become: yes
+
+    tasks:
+      - name: Copy file
+        copy:
+          src: /tmp/hello-1.0.war
+          dest: /var/lib/tomcat/webapps
