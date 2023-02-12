@@ -46,7 +46,7 @@
   tasks:
     - name: Copy war file in host
       fetch:
-        src: /tmp/boxfuse-sample-java-war-hello && mvn package/hello-1.0.war
+        src: /tmp/github/boxfuse-sample-java-war-hello && mvn package/hello-1.0.war
         dest: /tmp
 
 - name: Install tomcat9 in launch server
