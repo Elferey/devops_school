@@ -10,8 +10,7 @@ services:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - data:/usr/local/tomcat
-      - "./tomcathome/conf/server.xml:/usr/local/tomcat/conf/server.xml"
+      - data/target:/usr/local/tomcat
     ports:
       - 8080:8080
     depends_on:
