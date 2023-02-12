@@ -17,3 +17,4 @@ services:
       - maven_custom
 volumes:
   data2:
+  data3:
