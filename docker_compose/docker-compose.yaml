@@ -7,9 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - data2:/tmp
-      - type: bind
-        source: data2/target
-        target: ./tom
+      - /tmp:./tom
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
