@@ -7,12 +7,15 @@ services:
       dockerfile: Dockerfile
     volumes:
       - data2:/tmp
-      - "/tmp:./tom"
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
-      - data3:/usr/local/tomcat
-      - data2:/usr/local/tomcat/webapps
+       - type: volume
+         source: data2
+         target: /usr/local/tomcat/webapps
+         volume:
+           nocopy: true
+#      - data3:/usr/local/tomcat
     ports:
       - 8080:8080
     depends_on:
