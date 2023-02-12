@@ -6,7 +6,7 @@ services:
       context: ./maven_custom
       dockerfile: Dockerfile
     volumes:
-      - data2:/tmp
+      - data2:/tmp/target
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
