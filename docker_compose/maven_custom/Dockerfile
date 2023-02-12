@@ -5,5 +5,5 @@ RUN cd /usr/local/tomcat && git clone https://github.com/Elferey/devops_school.g
 
 FROM maven:3.6.0-jdk-11-slim
 WORKDIR /usr/local/tomcat
-COPY --from=git  /tmp/devops_school/docker_compose/boxfuse-sample-java-war-hello /usr/local/tomcat
+COPY --from=git  /usr/local/tomcat/devops_school/docker_compose/boxfuse-sample-java-war-hello /usr/local/tomcat
 RUN mvn package
