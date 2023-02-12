@@ -6,4 +6,4 @@ WORKDIR /tmp
 COPY --from=git  /tmp/devops_school/docker_compose/boxfuse-sample-java-war-hello /tmp
 RUN mvn package
 RUN cp -r target/hello-1.0.war /data
-VOLUME [ "/data" ]
+VOLUME [ "/tmp" ]
