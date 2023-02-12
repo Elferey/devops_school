@@ -37,7 +37,7 @@
         state: present
 
     - name: Build java app
-      raw: cd /tmp/boxfuse-sample-java-war-hello && mvn package
+      raw: cd /tmp/github/boxfuse-sample-java-war-hello && mvn package
 
 - name: send hello-1.0.war file in launching server
   hosts: web
