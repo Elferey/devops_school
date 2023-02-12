@@ -75,4 +75,4 @@
         dest: /var/lib/tomcat/webapps
 
     - name: chown owner war file
-      raw: chown tomcat:tomcat hello-1.0.war
+      raw: chown tomcat:tomcat /var/lib/tomcat/webapps/hello-1.0.war
