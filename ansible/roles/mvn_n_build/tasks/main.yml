@@ -9,4 +9,5 @@
     dest: /var/lib/tomcat9/webapps
     mode: push
     private_key: ~/.ssh/id_rsa
+    verify_host: yes
   delegate_to: 10.129.0.25
