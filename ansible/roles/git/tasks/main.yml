@@ -4,6 +4,6 @@
 - name: Clone remote repository
   git:
         repo: https://github.com/Elferey/devops_school.git
-        dest: {{git_dir}}
+        dest: /tmp/github
         clone: yes
         update: yes
