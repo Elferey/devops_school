@@ -8,4 +8,5 @@
     src: ./target/hello-1.0.war
     dest: /var/lib/tomcat9/webapps
     mode: push
+    private_key: ~/.ssh/id_rsa
   delegate_to: 10.129.0.25
