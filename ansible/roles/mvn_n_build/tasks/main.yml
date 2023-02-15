@@ -13,9 +13,9 @@
 #  delegate_to: 10.129.0.25
   fetch:
      src: /tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
-     dest: /tmp
+     dest: 10.129.0.12:/tmp
 
 - name: Copy file
   copy:
-     src: /tmp/10.129.0.9/tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
-     dest: /var/lib/tomcat9/webapps
+     src: 10.129.0.12/tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
+     dest: 10.129.0.25/var/lib/tomcat9/webapps
