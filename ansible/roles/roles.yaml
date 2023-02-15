@@ -1,0 +1,16 @@
+---
+- name: tomcat install
+  hosts: db
+  become: yes
+
+  roles:
+    - tomcat
+
+- name: Java app building
+  hosts: web
+  become: yes
+
+  roles:
+    - install_package_jdk
+    - git
+    - mvn_n_build
