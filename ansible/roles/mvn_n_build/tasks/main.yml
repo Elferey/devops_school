@@ -4,10 +4,18 @@
   raw: cd {{ git_dir }}/boxfuse-sample-java-war-hello && mvn package
 
 - name: Send *.war file in tomcat host
-  synchronize:
-    src: ./target/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps
-    mode: push
-    private_key: ~/.ssh/id_rsa
-    verify_host: yes
-  delegate_to: 10.129.0.25
+#  synchronize:
+#    src: ./target/hello-1.0.war
+#    dest: /var/lib/tomcat9/webapps
+#    mode: push
+#    private_key: ~/.ssh/id_rsa
+#    verify_host: yes
+#  delegate_to: 10.129.0.25
+  fetch:
+        src: /tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
+        dest: /tmp
+
+  - name: Copy file
+    copy:
+        src: /tmp/10.129.0.9/tmp/github/boxfuse-sample-java-war-hello/target/hello-1.0.war
+        dest: /var/lib/tomcat9/webapps
