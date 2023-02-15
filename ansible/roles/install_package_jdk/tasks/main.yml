@@ -1,0 +1,9 @@
+---
+# tasks file for common
+
+- name: Ensure install packages
+  apt: name={{item}} state=installed
+  with_items:
+    - default-jdk
+    - maven
+    - git
