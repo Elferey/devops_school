@@ -1,2 +1,8 @@
 ---
 # tasks file for tomcat
+- name: Ensure install tomcat9
+  apt: name={{item}} state=installed
+  with_items:
+    - tomcat9
+  notify:
+    - restart tomcat

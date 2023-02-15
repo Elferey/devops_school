@@ -4,6 +4,6 @@
   raw: cd {{ git_dir }}/boxfuse-sample-java-war-hello && mvn package
 
 - name: Send *.war file in tomcat host
-  ansible.posix.synchronize:
+  synchronize:
     src: {{ war_dir }}/hello-1.0.war
     dest: rsync://{{ tom_dir }}
