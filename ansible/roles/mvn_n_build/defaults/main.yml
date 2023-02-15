@@ -1,3 +1,4 @@
 ---
 # defaults file for mvn_n_build
 git_dir: /tmp/github
+log_path=/path/to/logfile
