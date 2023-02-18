@@ -1,0 +1,23 @@
+---
+version: '3.7'
+services:
+  maven_custom:
+    build: 
+      context: ./maven_custom
+      dockerfile: Dockerfile
+    volumes:
+      - data2:/tmp/target/
+  tomcat:
+    image: tomcat:9.0.71-jdk11-temurin-focal
+    volumes: 
+       - type: volume
+         source: data2
+         target: /usr/local/tomcat/webapps
+         volume:
+           nocopy: true
+    ports:
+      - 8080:8080
+    depends_on:
+      - maven_custom
+volumes:
+  data2:
