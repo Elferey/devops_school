@@ -1,22 +1,13 @@
-FROM komljen/php-apache
-MAINTAINER Alen Komljen <alen.komljen@live.com>
+FROM maven:3.8.7-openjdk-18-slim as maven_builder
+ENV CATALINA_HOME="/usr/local/tomcat"
+WORKDIR $CATALINA_HOME
+ADD boxfuse-sample-java-war-hello $CATALINA_HOME
+RUN mvn package
 
-ENV WP_PASS aeshiethooghahtu4Riebooquae6Ithe
-ENV WP_USER wordpress
-ENV WP_DB wordpress
-ENV APP_ROOT /var/www/html
-
-ADD http://wordpress.org/latest.tar.gz wordpress.tar.gz
-
-RUN \
-  tar xzf wordpress.tar.gz -C ${APP_ROOT} --strip-components 1 && \
-  rm wordpress.tar.gz
-
-COPY start.sh start.sh
-
-VOLUME ["$APP_ROOT"]
-
-RUN rm /usr/sbin/policy-rc.d
-CMD ["/start.sh"]
-
-EXPOSE 80
+FROM tomcat:9
+ENV CATALINA_HOME="/usr/local/tomcat"
+RUN mkdir -p $CATALINA_HOME
+WORKDIR $CATALINA_HOME
+COPY --from=maven_builder $CATALINA_HOME/target/hello-1.0.war $CATALINA_HOME/webapps
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
